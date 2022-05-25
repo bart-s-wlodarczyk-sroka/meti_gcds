@@ -8,12 +8,12 @@ from scipy.optimize import minimize
 c_ra = 250.423475
 c_dec = 36.46131944
 
-# the limiting search radius for the Arecibo beam was taken as ~29.88 deg
-# the limiting search radius for a 25-m paraboloid beam was taken as ~30.198 deg
+# the limiting search radius for the Arecibo beam was taken as ~6.730 deg
+# the limiting search radius for a 25-m paraboloid beam was taken as ~7.020 deg
 # the Arecibo sample is contained entirely within the 25-m paraboloid sample.
 #
 # the following Gaia archive ADQL query fetches the required parameters for Gaia DR2
-# sources within 30.198 deg of the J2015.5 coordinates of M13:
+# sources within 7.020 deg of the J2015.5 coordinates of M13:
 #
 # SELECT source_id, dist.r_est, dist.r_lo, dist.r_hi,
 # src.ra, src.ra_error, src.dec, src.dec_error,
@@ -24,7 +24,7 @@ c_dec = 36.46131944
 # WHERE CONTAINS(
 # POINT('ICRS',gaiadr2.gaia_source.ra,gaiadr2.gaia_source.dec),
 # CIRCLE( 'ICRS', COORD1(EPOCH_PROP_POS(250.42347500000002,36.46131944,.0813,-3.1800,-2.5600,-244.4900,2000,2015.5)),
-# COORD2(EPOCH_PROP_POS(250.42347500000002,36.46131944,.0813,-3.1800,-2.5600,-244.4900,2000,2015.5)), 30.198) )=1)
+# COORD2(EPOCH_PROP_POS(250.42347500000002,36.46131944,.0813,-3.1800,-2.5600,-244.4900,2000,2015.5)), 7.020) )=1)
 # AS subquery USING (source_id)
 # JOIN gaiadr2.gaia_source AS src USING (source_id)
 #
